@@ -75,13 +75,6 @@ virtualenv ~/.udacity-devops
 source ~/.udacity-devops/bin/activate
 ```
 
-I  created the `.udacity-devops` virtual environment in my mac, so I will simply activate it. You can check whether which python are we using by tying `which python` in your terminal.
-
-```bash
-source ~/.udacity-devops/bin/activate
-```
-
-
 **Create the script file and test file.**
 
 The next step is to create the script file and test file. This is a boilerplate code to get the initial continuous integration process working. It will later be replaced by the real application code.
