@@ -1,4 +1,4 @@
-# How to Build A CI CD Pipeline
+# How to Build A CI/CD Pipeline
 
 # Overview
 
