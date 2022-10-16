@@ -29,7 +29,7 @@ https://docs.google.com/spreadsheets/d/1N6VX9jtAg5f-vECEph7VOCuapzAQSO8FtADlReiR
 
 - Go to Azure Portal and  Click Azure Cloud Shell
 - Type `ssh-keygen -t rsa` to generate a key
-- Type `cat /home/jenny/.ssh/id_rsa.pub` to generate the key.
+- Type `cat /home/odl_user/.ssh/id_rsa.pub` to generate the key.
 - Copy the generated key and go to GitHub. Click the settings and paste the key.
 
 ![GitHub Setting](./images/GitHubSetting.png)
