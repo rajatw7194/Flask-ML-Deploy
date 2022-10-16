@@ -187,8 +187,6 @@ To start with, we need to authorize Azure APP Service. You can create a APP Serv
 az webapp up -n <your-appservice>az webapp config set -g <your-resource-group> -n <your-appservice> --startup-file <your-startup-file-or-command>
 ```
 
-![authorize web app](./images/authorizewebapp.png)
-
 ![app service is ready](./images/appserviceisready.png)
 
 ## 2. Enable Continuous Deployment with Azure Pipelines
