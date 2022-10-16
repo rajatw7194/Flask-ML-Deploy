@@ -191,8 +191,6 @@ To start with, we need to authorize Azure APP Service. You can create a APP Serv
 az webapp up -n <your-appservice>az webapp config set -g <your-resource-group> -n <your-appservice> --startup-file <your-startup-file-or-command>
 ```
 
-![app service is ready](./images/appserviceisready.png)
-
 ## 2. Enable Continuous Deployment with Azure Pipelines
 
 Then we want to use Azure pipelines to deploy our flask ML web application. To do so, we need to create a Azure DevOps Project and then establish a service connection for Azure Pipelines and Azure App Service first. 
@@ -206,6 +204,7 @@ After that, the Flask ML Web Application is deployed successful with Azure Pipel
 ![successdeploywithazurepipeline](./images/successdeploywithazurepipeline.png)
 
 Go to the App Service, and click the URL under the Essentials , we should be able to visit the website now. 
+![app service is ready](./images/appserviceisready.png)
 
 **Verify Prediction with starter code file**
 
@@ -214,6 +213,7 @@ Open Azure Cloud Shell, and go to our project directory. Run the `make_predict_a
 in the CLI. Remeber to modify your app name.
 
 ![azure prediction](./images/azureprediction.png)
+
 
 ## Locust
 
