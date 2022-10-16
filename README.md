@@ -16,6 +16,7 @@ https://docs.google.com/spreadsheets/d/1N6VX9jtAg5f-vECEph7VOCuapzAQSO8FtADlReiR
 
 ## Architectural Diagram
 ![architecture diagram](./images/Architecture.png)
+![architecture diagram](./images/architecture1.png)
 
 ## CI: Set Up Azure Cloud Shell
 
@@ -141,6 +142,8 @@ Since we got the prediction value, it means our application works perfectly on o
 
 Go to Azure Portal, click the Azure CLI, and clone the project. And we can do the same steps like above in our Azure Cloud Shell.
 
+![git clone](./images/gitclone.png)
+
 ## CI: Configure GitHub Actions
 
 ### Replace yml code
@@ -171,6 +174,7 @@ jobs:
         make test
 ```
 
+![Github Actions](./images/buildtest.png)
 ![clear run](./images/clearrun.png)
 
 ## Continuous Delivery on Azure
@@ -211,7 +215,18 @@ in the CLI. Remeber to modify your app name.
 
 ![azure prediction](./images/azureprediction.png)
 
+## Locust
+
+![locust](./images/locust.png)
+
+## Enhancements
+
+This project can be enhanced by using the GitHub actions to deploy the web applications. We can utilize GitHub Actions as well as Azure Pipelines for continous delivery. Also, we can modify the pipeline and only triggers when there is a Pull Request.
+Also, the whole process can be applied for other frameworks such as C# or Node.js.
+Moreover, to build an image of the app and push to an image registry(e.g acr) and then do a containerized deployment. The app could be deployed to a kubernetes cluster or something like integration tests included as part of the devops pipeline.
+
 ## Demo
 
 https://youtu.be/yVb5frGocYE
 
+[![Python application test with Github Actions](https://github.com/rajatw7194/Building-CI-CD_Azure_Pipeline/actions/workflows/python.yml/badge.svg?branch=main)](https://github.com/rajatw7194/Building-CI-CD_Azure_Pipeline/actions/workflows/python.yml)
