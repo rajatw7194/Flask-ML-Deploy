@@ -29,9 +29,6 @@ https://docs.google.com/spreadsheets/d/1N6VX9jtAg5f-vECEph7VOCuapzAQSO8FtADlReiR
 
 - Go to Azure Portal and  Click Azure Cloud Shell
 - Type `ssh-keygen -t rsa` to generate a key
-
-![ssh keygen](./images/sshkeygen.png)
-
 - Type `cat /home/jenny/.ssh/id_rsa.pub` to generate the key.
 - Copy the generated key and go to GitHub. Click the settings and paste the key.
 
@@ -84,7 +81,6 @@ I  created the `.udacity-devops` virtual environment in my mac, so I will simply
 source ~/.udacity-devops/bin/activate
 ```
 
-![activate env](./images/activateenv.png)
 
 **Create the script file and test file.**
 
@@ -152,7 +148,6 @@ Since we got the prediction value, it means our application works perfectly on o
 
 Go to Azure Portal, click the Azure CLI, and clone the project. And we can do the same steps like above in our Azure Cloud Shell.
 
-![Github clone project](./images/GithubCloneProject.png)
 ## CI: Configure GitHub Actions
 
 ### Replace yml code
@@ -168,10 +163,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.5
+    - name: Set up Python 3.9
       uses: actions/setup-python@v1
       with:
-        python-version: 3.5
+        python-version: 3.9
     - name: Install dependencies
       run: |
         make install
@@ -182,8 +177,7 @@ jobs:
       run: |
         make test
 ```
-![install](./images/install.png)
-![lint build test](./images/buildandtest.png)
+
 ![clear run](./images/clearrun.png)
 
 ## Continuous Delivery on Azure
@@ -191,11 +185,6 @@ jobs:
 This part will involve setting up Azure Pipelines to deploy the Flask starter code to Azure App Services. After we have enabled the source control integration, we can select the Azure Pipelines to build provider, and then configure the App Services permissions.
 ### Load Test with locust
 
-```
-locust
-```
-
-![locust load test](./images/locust.png)
 ### 1. Authorize Azure App Service
 
 Azure App Service is like our localhost but it is hosted in Azure. It is like a black-box localhost. Azure APP service is PaaS so we do not need to set up and maintain the Virtual Machines.It is easy to use. 
@@ -224,8 +213,6 @@ After that, the Flask ML Web Application is deployed successful with Azure Pipel
 
 Go to the App Service, and click the URL under the Essentials , we should be able to visit the website now. 
 
-![app service](./images/appservice.png)
-
 **Verify Prediction with starter code file**
 
 Open Azure Cloud Shell, and go to our project directory. Run the `make_predict_azure_app.sh`
@@ -233,40 +220,6 @@ Open Azure Cloud Shell, and go to our project directory. Run the `make_predict_a
 in the CLI. Remeber to modify your app name.
 
 ![azure prediction](./images/azureprediction.png)
-
-### 3. Enable GitHub and Azure Pipelines
-
-Now that we have set up the Azure Pipelines and deploy the Flask ML application on Azure, we want to make sure when we make any changes on our GitHub Repo, the Azure Pipelines will be triggered. The piplelines will run and the applications will automatically deployed to Azure App Service.
-
-I have modified the heading for my web application. When I commit the changes to GitHub, the Azure Pipleines will be triggered and it will deploy my new changes to the App Service.
-
-```python
-@app.route("/")def home():    
-	html = "<h3>Sklearn Prediction Home (Continuous Delivery Test)</h3>"    
-	return html.format(format)
-```
-
-To do this, we need to tell Azure Pipeline what are the triggers. Whether we want to deploy the web applications when we have made any changes  or when we create a Pull Request and merge our changes to the master branch. 
-
-To make it simple here, I just want to tell the Azure Pipeline to deploy the web applicatios when I have made any changes on my branch. You can always modify it to be triggered by a PR.
-
-![modify triggers](./images/modifytriggers.png)
-
-![trigger by changes](./images/triggerbychanges.png)
-
-### **4. Stream Logs**
-
-Here is the output of streamed log files from deployed application.
-
-https://flaskmlapp.scm.azurewebsites.net/api/logs/docker
-
-![logfiles](./images/logfiles.png)
-View the log file in App Service - Log Stream
-![logfiles](./images/logstream.png)
-## Enhancements
-
-- This project can be enhanced by using the GitHub actions to deploy the web applications. We can utilize GitHub Actions as well as Azure Pipelines for continous delivery. Also, we can modify the pipeline and only triggers when there is a Pull Request.
-- Also, the whole process can be applied for other frameworks such as C# or Node.js.
 
 ## Demo
 
