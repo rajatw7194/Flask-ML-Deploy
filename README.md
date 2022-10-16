@@ -79,7 +79,7 @@ source ~/.udacity-devops/bin/activate
 
 The next step is to create the script file and test file. This is a boilerplate code to get the initial continuous integration process working. It will later be replaced by the real application code.
 
-First, you will need to create [hello.py](http://hello.py/) with the following code at the top level of your Github repo:
+First, you will need to create [hello.py](https://github.com/rajatw7194/Flask-ML-Deploy/blob/main/hello.py) with the following code at the top level of your Github repo:
 
 ```python
 def toyou(x):
