@@ -183,7 +183,6 @@ jobs:
 ## Continuous Delivery on Azure
 
 This part will involve setting up Azure Pipelines to deploy the Flask starter code to Azure App Services. After we have enabled the source control integration, we can select the Azure Pipelines to build provider, and then configure the App Services permissions.
-### Load Test with locust
 
 ### 1. Authorize Azure App Service
 
